@@ -206,10 +206,12 @@
         top: -1px;
         z-index: 2;
         padding: 12px 32px 10px 32px;
+        width: max-content;
         font-size: 18px;
         opacity: 0;
         visibility: hidden;
         background: var(--black-color);
+        transition: transform .5s ease-in-out, opacity .5s ease-in-out, visibility .5s ease-in-out;
     }
     .form__input2 {
         padding: 0;
@@ -245,7 +247,7 @@
         cursor: pointer;
     }
     .form__active {
-        min-width: 25vh;
+        width: max-content;
         transform: translate(0, -10%);
         opacity: 1;
         overflow: hidden;
@@ -281,7 +283,7 @@
     }
     /* gallery */
     .gallery {
-        padding: 79px 0 80px 0;
+        padding: 79px 0 78px 0;
     }
     .gallery__left {
         width: calc(490 / 1600 * 100%);
@@ -289,18 +291,8 @@
     .gallery-choices.choices {
         margin-bottom: 106px;
     }
-    .gallery__caption {
-        margin-bottom: 6px;
-    }
     .gallery-choices {
         width: 280px;
-    }
-    .choices__list--single {
-        padding: 5px 16px 2px 4px;
-    }
-    .choices__list--dropdown .choices__item,
-    .choices__list[aria-expanded] .choices__item {
-        padding: 5px;
     }
     /* modal */
     .modal__box {
@@ -323,35 +315,21 @@
         width: calc(1040 / 1600 * 100%);
     }
     .gallery__swiper-container {
-        padding: 315px 0 0 0;
+        padding: 53% 0 0 0;
     }
     .gallery__navigation {
         margin-bottom: 30px;
     }
-    .swiper-gallery1 {
-        background: transparent url("../img/swiper1024-gallery1.jpg") no-repeat center/cover;
-    }
-    .swiper-gallery2 {
-        background: transparent url("../img/swiper1024-gallery2.jpg") no-repeat center/cover;
-    }
-    .swiper-gallery3 {
-        background: transparent url("../img/swiper1024-gallery3.jpg") no-repeat center/cover;
-    }
-    .swiper-gallery4 {
-        background: transparent url("../img/swiper1024-gallery4.jpg") no-repeat center/cover;
-    }
-    .swiper-gallery5 {
-        background: transparent url("../img/swiper1024-gallery5.jpg") no-repeat center/cover;
-    }
-    .swiper-gallery6 {
-        background: transparent url("../img/swiper1024-gallery6.jpg") no-repeat center/cover;
+    .gallery__swiper {
+        height: 100%;
+        object-fit: cover;
     }
     /*-каталог:табы в аккордионе-*/
     .catalog__content {
         width: 100%;
     }
     .catalog__image {
-        height: 274px;
+        margin-bottom: 25px;
     }
     .catalog__content-wrap {
         width: calc(760 / 1600 * 100%);
@@ -365,9 +343,18 @@
         column-width: 200px;
         column-gap: 38px;
     }
+    .accordion__img {
+        padding: 8px;
+    }
+    .accordion__content-img {
+        min-width: 173px;
+    }
+    .accordion__content-wrap {
+        padding: 0;
+    }
     /* События */
     .developments {
-        padding-bottom: 60px;
+        padding-bottom: 63px;
     }
     .developments__size {
         min-height: 200px;
@@ -397,7 +384,7 @@
         padding: 60px 0 80px 0;
     }
     .projects__title {
-        margin-bottom: 19px;
+        margin-bottom: 18px;
     }
     .projects__descr {
         max-width: 100%;
@@ -440,7 +427,7 @@
     }
     /* контакты */
     .contacts__container {
-        margin-bottom: 37px;
+        margin-bottom: 41px;
     }
     .contacts__title {
         margin-bottom: 10px;
@@ -481,6 +468,7 @@
         width: 100%;
     }
     .form2 {
+        width: 90vw;
         padding: 12px 55px 10px 52px;
     }
     .form__active {
@@ -524,7 +512,7 @@
         background-color: var(--black-color);
     }
     .gallery__rignt {
-        width: calc(768 / 992 * 100%);
+        width: calc(992 / 992 * 100%);
     }
     .gallery__swiper-container {
         padding: 330px 0 0 0;
@@ -532,23 +520,16 @@
     .gallery__rignt {
         padding: 41px 3px 0 0;
     }
+    .gallery__swiper {
+        height: 100%;
+        width: 100%;
+    }
     .swiper-gallery1 {
-        background: transparent url("../img/swiper768-gallery1.jpg") no-repeat center/cover;
+        object-fit: cover;
+        width: 100%;
     }
     .swiper-gallery2 {
-        background: transparent url("../img/swiper768-gallery2.jpg") no-repeat center/cover;
-    }
-    .swiper-gallery3 {
-        background: transparent url("../img/swiper768-gallery3.jpg") no-repeat center/cover;
-    }
-    .swiper-gallery4 {
-        background: transparent url("../img/swiper768-gallery4.jpg") no-repeat center/cover;
-    }
-    .swiper-gallery5 {
-        background: transparent url("../img/swiper768-gallery5.jpg") no-repeat center/cover;
-    }
-    .swiper-gallery6 {
-        background: transparent url("../img/swiper768-gallery6.jpg") no-repeat center/cover;
+        width: 100%;
     }
     .modal__box {
         min-width: 668px;
@@ -589,8 +570,8 @@
         width: calc(1600 / 1600 * 100%);
     }
     .catalog__image {
-        height: 419px;
-        margin-bottom: 21px;
+        /* height: 419px; */
+        margin-bottom: 18px;
     }
     .catalog__caption {
         margin-bottom: 6px;
@@ -607,13 +588,22 @@
     .developments__descr {
         padding: 0 4px 0 0;
     }
+    .accordion__img {
+        padding: 12px;
+    }
+    .accordion__content-img {
+        min-width: 251px;
+    }
+    .accordion__content-wrap {
+        padding: 41px 0 0 0;
+    }
     /* проекты */
     .projects__title {
-        margin-bottom: 16px;
+        margin-bottom: 14px;
     }
     .projects__descr {
         max-width: 99.2%;
-        margin-bottom: 30px;
+        margin-bottom: 29px;
     }
     .projects__link::before {
         content: "blanchard-art.ru";
@@ -622,10 +612,10 @@
         margin-bottom: 27px;
     }
     .swiper-projects1 {
-        padding: 23px 25px;
+        padding: 24px 25px;
     }
     .swiper-projects2 {
-        padding: 30px 25px;
+        padding: 32px 25px;
     }
     .swiper-projects3 {
         padding: 26px 25px;
@@ -656,7 +646,7 @@
     }
     /* contacts */
     .contacts__container {
-        margin-bottom: 39px;
+        margin-bottom: 42px;
     }
     .div-form {
         flex-wrap: wrap;
@@ -717,6 +707,9 @@
         padding: 17px 20px 26px 20px;
         height: 594px;
         width: calc(250 / 500 * 100%);
+    }
+    .accordion__content-wrap {
+        padding: 0;
     }
 }
 
@@ -801,10 +794,13 @@
     }
     .header__form {
         width: 100%;
-        background: #000000;
+        background: var(--black-color);
+    }
+    .form2 {
+        right: -8px;
+        min-width: 110vw;
     }
     .form__active {
-        margin: 0 -12px 0 0;
         min-width: 110vw;
         transform: translate(0, 4%);
         opacity: 1;
@@ -862,7 +858,8 @@
         line-height: 16px;
     }
     .hero__button {
-        left: 45px;
+        display: block;
+        margin: 0 auto;
         padding: 11px 16px 14px 19px;
         width: 200px;
         height: 40px;
@@ -894,7 +891,7 @@
     }
     /* gallery */
     .gallery {
-        padding: 50px 0 100px 0;
+        padding: 50px 0 18px 0;
     }
     .gallery__title {
         margin-bottom: 12px;
@@ -903,17 +900,13 @@
         line-height: 38px;
     }
     .gallery__caption {
-        margin-bottom: 0;
+        margin-bottom: 4px;
         font-weight: 600;
         font-size: 16px;
         line-height: 32px;
     }
     .gallery-choices {
         width: 290px;
-    }
-    .choices__list--single {
-        padding: 0;
-        padding: 7px 16px 1px 4px;
     }
     .gallery-choices.choices {
         margin-bottom: 30px;
@@ -930,32 +923,16 @@
     .gallery__swiper-container {
         padding: 367px 0 0 0;
     }
-    .swiper-gallery1 {
-        background: transparent url("../img/swiper768-gallery1.jpg") no-repeat center/cover;
-    }
-    .swiper-gallery2 {
-        background: transparent url("../img/swiper768-gallery2.jpg") no-repeat center/cover;
-    }
-    .swiper-gallery3 {
-        background: transparent url("../img/swiper768-gallery3.jpg") no-repeat center/cover;
-    }
-    .swiper-gallery4 {
-        background: transparent url("../img/swiper768-gallery4.jpg") no-repeat center/cover;
-    }
-    .swiper-gallery5 {
-        background: transparent url("../img/swiper768-gallery5.jpg") no-repeat center/cover;
-    }
     .swiper-gallery6 {
         display: none;
     }
     .gallery__wrap2 {
-        position: relative;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
     }
     .gallery__navigation {
-        position: absolute;
-        top: 20px;
-        left: 80px;
-        margin: 0;
+        padding-top: 20px;
     }
     .btn-prev {
         margin-right: 0;
@@ -992,6 +969,9 @@
     .catalog__descr {
         display: none;
     }
+    .catalog__image {
+        margin-bottom: 17px;
+    }
     .accordion__button {
         padding: 20px 0 20px 0;
     }
@@ -1014,20 +994,13 @@
     .catalog__content-wrap {
         padding-top: 46.5px;
     }
-    .catalog__image {
-        height: 181px;
-    }
     .accordion__img {
         margin: 0;
-        margin-right: 20px;
         padding: 6px;
     }
     .accordion__caption {
         font-size: 18px;
         line-height: 32px;
-    }
-    .accordion__content-wrap {
-        margin: 25px 0 25px 0;
     }
     .catalog__caption {
         margin-bottom: 5px;
@@ -1078,7 +1051,7 @@
         padding: 30px 0 4px 0;
     }
     .projects__title {
-        margin-bottom: 11px;
+        margin-bottom: 12px;
         font-size: 28px;
         line-height: 38px;
     }
@@ -1145,7 +1118,7 @@
     .contacts__container {
         flex-direction: column;
         padding: 0;
-        margin-bottom: 17px;
+        margin-bottom: 21px;
     }
     .div-form {
         padding-top: 20px;
@@ -1176,7 +1149,7 @@
         font-weight: 700;
         font-size: 12px;
         line-height: 16px;
-        color: #9d5cd0;
+        color: var(--violet-color);
         background: transparent;
         transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out, border 0.3s ease-in-out;
     }
@@ -1238,7 +1211,7 @@
         display: block;
     }
     .footer__link1 {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
     .footer__svg {
         width: 50px;

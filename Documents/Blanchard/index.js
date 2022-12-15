@@ -97,7 +97,7 @@ function FindOnPage(inputId) {
     ); //Заменяем найденный текст ссылками с якорем;
     lastResFind = textToFind; // сохраняем фразу для поиска, чтобы в дальнейшем по ней стереть все ссылки
     window.location = "#" + textToFind; //перемещаем скрол к последнему найденному совпадению
-    location.reload() //перезагрузить страницу после поиска
+    location.reload(); //перезагрузить страницу после поиска
 }
 //swiper1
 var swiper1 = new Swiper(".swiper1", {
@@ -150,20 +150,23 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         breakpoints: {
+            320: {
+                slidesPerGroup: 1,
+                slidesPerView: 1,
+            },
             577: {
                 slidesPerGroup: 2,
                 slidesPerView: 2,
                 spaceBetween: 38,
             },
-            992: {
+            768: {
                 slidesPerGroup: 2,
                 slidesPerView: 2,
                 spaceBetween: 34,
             },
-
             1200: {
                 slidesPerView: 3,
-                spaceBetween: 50,
+                spaceBetween: 20,
             },
         },
         speed: 800, //скорость переключения
@@ -305,6 +308,7 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             992: {
                 slidesPerView: 3,
+                slidesPerGroup: 3,
                 spaceBetween: 27,
             },
             1850: {
@@ -319,17 +323,24 @@ tippy("#myButton", {
     content: "Пример современных тенденций - современная методология разработки",
     theme: "projects__tooltip",
     maxWidth: 300,
+    delay: [250, 250],
+    duration: [800, 800]
 });
 tippy("#myButton2", {
     content: "Приятно,граждане,наблюдать,как сделанные на базе аналитики выводы вызывают у вас эмоции",
     theme: "projects__tooltip",
     maxWidth: 300,
+    delay: [250, 250],
+    duration: [800, 800]
 });
 tippy("#myButton3", {
     content: "В стремлении повысить качество",
     theme: "projects__tooltip",
     maxWidth: 300,
+    delay: [250, 250],
+    duration: [800, 800]
 });
+
 //swiper4
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -694,7 +705,7 @@ const modal = new Modal({
     },
 });
 
-//скролл
+//скролл на мобильной версии
 
 (() => {
     const MOBILE_WIDTH = 992;
@@ -729,6 +740,21 @@ const modal = new Modal({
             e.preventDefault();
 
             scrollToContent(this, true);
+        });
+    });
+})();
+// плавный скролл на навигацию
+document.querySelectorAll('.js-scroll-link2').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const href = this.getAttribute('href').substring(1);
+        const scrollTarget = document.getElementById(href);
+        const elementPosition = scrollTarget.getBoundingClientRect().top;
+
+        window.scrollBy({
+            top: elementPosition,
+            behavior: 'smooth'
         });
     });
 })();
